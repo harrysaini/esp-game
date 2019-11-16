@@ -1,9 +1,9 @@
 import sequelize from '../libs/sequelize';
 import Sequelize, { Model } from 'sequelize';
-import Task from './task.model';
-import Image from './image.model';
 
 class Answer extends Model {
+  imageId!: number;
+  userId!: number;
   static associate: (models: any) => void;
 }
 Answer.init({
@@ -15,6 +15,7 @@ Answer.init({
 Answer.associate = (models: any) => {
   Answer.belongsTo(models.Task);
   Answer.belongsTo(models.Image);
+  Answer.belongsTo(models.User);
 }
 
 export default Answer;

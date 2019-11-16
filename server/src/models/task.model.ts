@@ -3,6 +3,9 @@ import Sequelize, { Model } from 'sequelize';
 
 
 class Task extends Model {
+  id!: number;
+  gameId!: number;
+  imageId!: number;
   static associate: (models: any) => void;
 }
 Task.init({
@@ -14,7 +17,7 @@ Task.init({
 Task.associate = (models: any) => {
   Task.belongsTo(models.Game);
   Task.belongsTo(models.Image);
-  Task.belongsTo(models.User);
+  Task.hasMany(models.Answer);
 }
 
 

@@ -2,6 +2,11 @@ import sequelize from '../libs/sequelize';
 import Sequelize, { Model } from 'sequelize';
 
 class Image extends Model {
+  url!: string;
+  name!: string;
+  isPrimaryImage!: boolean;
+  setPrimaryImage!: Sequelize.BelongsToSetAssociationMixin<Image, 'id'>
+
   static associate: (models: any) => void;
 }
 Image.init({
@@ -25,8 +30,8 @@ Image.associate = (models: any) => {
     as: 'primaryImage',
     foreignKey: 'primaryImageId'
   });
+  Image.hasMany(models.Task);
 }
-
 
 
 export default Image;

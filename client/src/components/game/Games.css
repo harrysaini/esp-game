@@ -1,0 +1,76 @@
+.game-wrapper {
+  padding: 20px;
+  width: 80%;
+  margin: auto;
+  padding-top: 5% ;
+}
+
+.buttons {
+  padding: 10px;
+  border: solid rgb(100, 102, 184) 1px;
+  border-radius: 10px;
+}
+
+.buttons > input, .buttons > button {
+  min-width: 150px;
+  margin: 10px;
+}
+
+
+.buttons > div > input, .buttons > div >button {
+  min-width: 150px;
+  margin: 10px;
+}
+
+.main-game{
+  margin-top: 10px;
+  padding: 10px;
+  border: solid rgb(100, 102, 184) 1px;
+  border-radius: 10px;
+  min-height: 400px;
+}
+
+.game-question{
+  padding: 20px;
+}
+
+.game-primary-image{
+  border: 1px solid grey;
+  border-radius: 10px;
+  width: auto;
+  margin: 0px 20%;
+  margin-bottom: 20px;
+  height: 400px;
+}
+
+.secondary-image-wrapper{
+  padding: 0px 10px;
+}
+
+.secondary-image{
+  border: 1px solid grey;
+  height: 250px;
+  cursor: pointer;
+}
+
+.secondary-image:hover{
+  outline: 4px solid #2a2abb63;
+}
+
+.secondary-image.selected{
+  box-shadow: 0 0.5rem 1rem 0 rgba(44,51,73,.1);
+  outline: 5px solid #00000063;
+  opacity: 0.8;
+}
+
+.fill {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  overflow: hidden
+}
+.fill img {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%
+}

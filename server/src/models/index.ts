@@ -1,21 +1,6 @@
-import Answer from './answer.model';
-import User from './user.model';
-import Game from './game.model';
-import Task from './task.model';
-import Image from './image.model';
-import * as _ from 'lodash';
+export * from './answer.model';
+export * from './game.model';
+export * from './user.model';
+export * from './task.model';
+export * from './image.model';
 
-const Models = {
-  Answer,
-  Game,
-  User,
-  Task,
-  Image
-}
-
-
-_.each(Models, (Model) => {
-  Model.associate(Models);
-});
-
-export default Models;

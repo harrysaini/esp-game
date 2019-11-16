@@ -1,15 +1,16 @@
 import app from './libs/express';
 import sequelize, { checkConnection } from './libs/sequelize';
-import './models';
-import { addImagesToDb } from './utils/addImagesInDb';
+import './models/loadModels';
+import { addImagesToDb, adduserToDb } from './utils/addImagesInDb';
 
 const port = app.get('port');
 
 const setServer = async () => {
   await sequelize.sync(
-    //{force: true}
-    );
+    {force: true}
+  );
   await addImagesToDb();
+  await adduserToDb();
 }
 
 setServer().then(() => {

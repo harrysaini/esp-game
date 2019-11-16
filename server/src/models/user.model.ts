@@ -2,7 +2,19 @@ import sequelize from '../libs/sequelize';
 import Sequelize, { Model } from 'sequelize';
 
 class User extends Model {
+  id!: number;
+  username!: string;
+  password!: string;
+  points!: number;
+
   static associate: (models: any) => void;
+
+  toJSON() {
+    let obj = this.get() as User;
+    delete obj.password;
+    return obj;
+  }
+
 }
 User.init({
   id:{
