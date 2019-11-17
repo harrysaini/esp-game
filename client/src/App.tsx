@@ -18,24 +18,32 @@ interface Props {
 }
 interface State {
   user: any;
+  isLoaded: boolean;
 }
 class App extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
     this.state = {
-      user: null
+      user: null,
+      isLoaded: false
     }
   }
 
   componentDidMount = async () => {
     const user = await AuthService.authenticate();
     this.setState({
-      user: user
+      user: user,
+      isLoaded: true
     });
   }
 
   render(){
+
+    if(!this.state.isLoaded) {
+      return <div></div>;
+    }
+
     return (
       <Router>
         <div className="App">
