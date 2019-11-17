@@ -1,0 +1,24 @@
+.login-wrapper {
+  padding: 5%;
+  width: 50%;
+  margin: auto;
+}
+
+.login-btns {
+  text-align: center;
+}
+.login-btns > button, a {
+  width: 100%;
+  display: inline-block;
+  margin: 5px;
+}
+
+.login-btns >  a {
+  cursor: pointer;
+  color: blue !important;
+  transition: color;
+}
+
+.login-btns >  a:hover {
+  color: black !important;
+}

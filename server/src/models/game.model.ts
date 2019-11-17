@@ -7,7 +7,7 @@ import Task from './task.model';
 class Game extends Model {
 
   isGamePlayedByFirstUser!: boolean;
-  isGamePlayedBySecondUser!: boolean'
+  isGamePlayedBySecondUser!: boolean;
   points!: number;
   player1!: number;
   player2!: number;

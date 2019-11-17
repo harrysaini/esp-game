@@ -1,4 +1,5 @@
 import { Request } from 'express';
+import User from '../../models/user.model';
 
 export interface ISignupRequest {
   username: string;
@@ -20,6 +21,11 @@ export class SignupRequest implements ISignupRequest {
       throw new Error('password not present');
     }
   }
+}
+
+export interface ILoginResponseObject{
+  user: User;
+  token: string;
 }
 
 export class LoginRequest extends SignupRequest{}

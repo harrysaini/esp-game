@@ -7,7 +7,7 @@ const port = app.get('port');
 
 const setServer = async () => {
   await sequelize.sync(
-    {force: true}
+    //{force: true}
   );
   await addImagesToDb();
   await adduserToDb();

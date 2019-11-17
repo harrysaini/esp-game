@@ -2,9 +2,10 @@ import React from 'react';
 import './Games.css';
 import GameService from '../../services/game.service';
 import {map, shuffle} from 'lodash';
+import { AuthService } from '../../services/auth.service';
 
 interface State {
-  userId: string;
+  userId?: number;
   isGameStarted: boolean;
   isGameCompleted: boolean;
   tasks?: any;
@@ -21,21 +22,23 @@ class Game extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      userId: '',
       isGameStarted: false,
       isGameCompleted: false,
       currentIndex: 0,
       answers: {}
     }
 
-    this.handleChange = this.handleChange.bind(this);
     this.startGame = this.startGame.bind(this);
     this.onSecondaryImageClick = this.onSecondaryImageClick.bind(this);
   }
 
-  handleChange(event: any) {
-    this.setState({userId: event.target.value});
+  componentDidMount= () => {
+    const user = AuthService.user;
+    this.setState({
+      userId: user.id
+    });
   }
+
 
 
   startGame = async () => {
@@ -44,7 +47,7 @@ class Game extends React.Component<Props, State> {
       if(!userId) {
         return;
       }
-      const game = await GameService.startNewGame(parseInt(userId, 10));
+      const game = await GameService.startNewGame(userId);
       const tasks = game.tasks;
       this.setState({
         gameId: game.id,
@@ -68,8 +71,8 @@ class Game extends React.Component<Props, State> {
           currentIndex
         });
       } else {
-        const userId = this.state.userId;
-        const resp = await GameService.submitAnswers(parseInt(userId, 10), this.state.gameId as number, this.state.answers);
+        const userId = this.state.userId as number;
+        const resp = await GameService.submitAnswers(userId, this.state.gameId as number, this.state.answers);
         this.setState({
           isGameCompleted: true
         });
@@ -82,7 +85,6 @@ class Game extends React.Component<Props, State> {
 
   onResetClick = () => {
     this.setState({
-      userId: '',
       isGameStarted: false,
       isGameCompleted: false,
       currentIndex: 0,
@@ -157,7 +159,6 @@ class Game extends React.Component<Props, State> {
           { !this.state.isGameStarted ?
           (
             <div>
-              <input className="user-input" placeholder="enter user id" onChange={this.handleChange}></input>
               <button className="btn btn-primary" onClick={this.startGame}>Start</button>
             </div>
           ) :(

@@ -34,6 +34,16 @@ class GameDAO {
     }
     return game;
   }
+
+  static async findGamesOfUser(userId: number) {
+    const games = await Game.findAll({
+      where: {
+        [Op.or]: [{player1: userId}, {player2: userId}]
+      }
+    });
+
+    return games;
+  }
 }
 
 export default GameDAO;

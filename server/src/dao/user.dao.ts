@@ -32,7 +32,7 @@ class UserDAO {
   }
 
   static async find(userObj: LoginRequest) {
-    const user = await User.findAll({
+    const user = await User.findOne({
       where: {
         username: userObj.username,
         password: userObj.password

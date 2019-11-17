@@ -4,7 +4,7 @@
   background-color: #282c34;
   display: flex;
   padding: 10px;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(12px + 2vmin);
@@ -12,6 +12,40 @@
   margin-bottom: 10px;
 }
 
+.App-header  .logo {
+  color: aliceblue;
+}
+
+.App-header  .logo:hover, .App-header > a:hover {
+  color: aliceblue;
+  text-decoration: none;
+  text-emphasis: none;
+  text-decoration-style: none;
+}
+
+.App-header > div {
+  display: flex;
+  flex: 1;
+}
+
+.header-btns{
+  flex: none !important;
+  flex-direction: row-reverse;
+}
+
+.header-btns > a {
+  float: right;
+}
+
 .App-link {
   color: #09d3ac;
+}
+
+.user-buttons {
+  display: flex;
+}
+
+.user-buttons > a,button {
+  display: inline-block;
+  margin: 5px;
 }

@@ -1,8 +1,9 @@
 {
-    "db": {
-        "host": "localhost",
-        "username": "postgres",
-        "password": "root",
-        "database": "esp-game"
-    }
+  "db": {
+    "host": "localhost",
+    "username": "postgres",
+    "password": "root",
+    "database": "esp-game"
+  },
+  "jwtSecret": "add_secret_here"
 }

@@ -1,10 +1,10 @@
 import Seqeuelize from 'sequelize';
 import config from 'config';
 
-const database: string = config.get('db.database');
-const host: string = config.get('db.host');
-const password: string = config.get('db.password');
-const username: string = config.get('db.username');
+const database: string = process.env.DATABASE || config.get('db.database');
+const host: string = process.env.HOST || config.get('db.host');
+const password: string = process.env.PASSWORD || config.get('db.password');
+const username: string = process.env.USERNAME || config.get('db.username');
 
 const sequelize = new Seqeuelize.Sequelize(database, username, password, {
   host: host,
