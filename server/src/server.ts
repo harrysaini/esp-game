@@ -15,7 +15,7 @@ const setServer = async () => {
 
 setServer().then(() => {
   app.listen(port, () => {
-    console.log('caastle-consumer-app2:server:' +  `Listening on ${port}`);
+    console.log('esp-game:server:' +  `Listening on ${port}`);
   });
 });
 
